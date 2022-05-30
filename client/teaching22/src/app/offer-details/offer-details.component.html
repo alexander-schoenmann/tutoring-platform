@@ -1,0 +1,97 @@
+<div class="ui container iconFamily">
+
+  <div class="firstRow">
+    <div class="offerDescription">
+
+      <h2 class="ui header offerTitle">{{ offer?.title }}</h2>
+      <div class="lector">from {{ offer?.user?.firstname }} {{ offer?.user?.lastname }}</div>
+
+      <p class="ui offerDetailDescription"> {{ offer?.description }}</p>
+
+      <p class="furtherOfferDescription">Course: {{offer?.course?.title}}</p>
+      <p class="furtherOfferDescription">Status: {{offer?.status}}</p>
+
+      <div class="offerInformation iconFamily">
+        <div class="metadata offerInformationDate">
+          <i class="icon calendar alternate offerInformationCalendar"></i>
+          <div>{{datePipe.transform(offer?.date, 'EEEE, dd. MMM yyyy')}}</div>
+        </div>
+        <div class="time">
+          <i class="icon clock timeDataClock"></i>
+          <div class="timeData">
+            <div class="metadata">From {{datePipe.transform(offer?.startTime, "hh:mm a")}}</div>
+            <div class="metadata">to {{datePipe.transform(offer?.endTime, "hh:mm a")}}</div>
+          </div>
+        </div>
+
+        <div *ngIf="offer?.level?.title == 'Easy'" data-tooltip="Easy" data-position="bottom center">
+          <img class="ui image levelImage" *ngIf="offer.level && offer.level.image" [src]="offer?.level?.image?.url">
+        </div>
+        <div *ngIf="offer?.level?.title == 'Medium'" data-tooltip="Medium" data-position="bottom center">
+          <img class="ui image levelImage" *ngIf="offer.level && offer.level.image" [src]="offer?.level?.image?.url">
+        </div>
+        <div *ngIf="offer?.level?.title == 'Hard'" data-tooltip="Hard" data-position="bottom center">
+          <img class="ui image levelImage" *ngIf="offer.level && offer.level.image" [src]="offer?.level?.image?.url">
+        </div>
+
+      </div>
+
+      <div class="offerTeacher">
+        <h3 class="ui header">Your Teacher...</h3>
+
+        <div class="teacherDetails">
+          <img class="ui small image teacherDetailsImage" *ngIf="offer.user && offer.user.image"
+               [src]="offer?.user?.image?.url">
+          <div class="teacherDetailText iconFamily">
+            <p>{{ offer?.user?.firstname }} {{ offer?.user?.lastname }}</p>
+            <p>{{ offer?.user?.education }}</p>
+            <p><i class="icon mail"></i> {{ offer?.user?.email }}</p>
+            <p><i class="icon phone"></i> {{ offer?.user?.phone }}</p>
+          </div>
+        </div>
+
+        <p class="teacherDetailsDescription">{{ offer?.user?.description }}</p>
+      </div>
+
+    </div>
+
+    <div class="offerImage">
+      <img class="ui medium image" *ngIf="offer && offer.image" [src]="offer.image.url">
+    </div>
+
+  </div>
+
+  <div class="secondRow">
+
+    <div class="offerRequest">
+
+      <div
+        *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() && offer?.status === 'available' && offer.course != undefined"
+        [offer]="offer" class="ts-request-form">
+      </div>
+
+    </div>
+  </div>
+
+  <button *ngIf="authService.isLoggedIn() && !authService.getCurrentUserIsStudent()"
+          [routerLink]="['../../admin',offer?.id]" class="ui icon button buttonWhite lectorButton">
+    <i class="write icon"></i> Edit offer
+  </button>
+  <button *ngIf="authService.isLoggedIn() && !authService.getCurrentUserIsStudent()"
+          class="ui icon button buttonWhite lectorButton" (click)="removeOffer()">
+    <i class="remove icon"></i> Delete offer
+  </button>
+
+  <br><br>
+
+  <button routerLink="/offers" class="ui button buttonBlue">Back to the offers</button>
+
+</div>
+
+
+
+
+
+
+
+

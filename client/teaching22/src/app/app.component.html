@@ -1,0 +1,45 @@
+<!--Start: Nav  -->
+<div class="ui fixed borderless huge menu navigationBar">
+
+  <div class="ui container grid">
+
+    <!--Start: Desktop Nav-->
+    <div class="computer only row">
+      <a routerLink="home" class="header item"><img class="imageLogo" src="../../assets/images/LogoStudents.png"></a>
+      <div class="right menu">
+        <a routerLink="home" routerLinkActive="active" class="item navItem">Home</a>
+        <a routerLink="offers" routerLinkActive="active" class="item navItem">Offers</a>
+        <a *ngIf="isLoggedIn()" routerLink="requests" routerLinkActive="active" class="item navItem">Requests</a>
+        <a (click)="logout()" routerLink="login" routerLinkActive="active" class="item loginButton">{{getLoginLabel()}}</a>
+      </div>
+    </div>
+    <!--End: Desktop Nav-->
+    <!--Start: Mobile Nav-->
+    <div class="tablet mobile only row">
+      <a routerLink="home" class="header item"><img class="imageLogo" src="../../assets/images/LogoStudents.png"></a>
+      <div class="right menu">
+        <a class="menu item iconFamily">
+          <div class="ui basic icon toggle button" (click)="toggleMobileNav()">
+            <i class="content icon"></i>
+          </div>
+        </a>
+      </div>
+      <div class="ui vertical accordion borderless fluid menu" *ngIf="!showMobileMenu">
+        <a routerLink="home" routerLinkActive="active" class="item mobileText" (click)="toggleMobileNav()">Home</a>
+        <a routerLink="offers" routerLinkActive="active" class="item mobileText" (click)="toggleMobileNav()">Offers</a>
+        <a *ngIf="isLoggedIn()" routerLink="requests" routerLinkActive="active" class="item mobileText"
+           (click)="toggleMobileNav()">Requests</a>
+        <div class="ui divider"></div>
+        <a (click)="logout()" routerLink="login" routerLinkActive="active" class="item mobileText"
+           (click)="toggleMobileNav()">{{getLoginLabel()}}</a>
+      </div>
+    </div>
+    <!--End: Mobile Nav-->
+  </div>
+</div>
+<!--End: Nav  -->
+
+
+<router-outlet></router-outlet>
+
+<footer></footer>

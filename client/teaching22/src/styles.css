@@ -1,0 +1,641 @@
+/* You can add global styles to this file, and also import other style files */
+
+html{
+  height: 100% !important;
+}
+
+html body *{
+  font-family: Montserrat, sans-serif !important;
+}
+
+html body {
+  background-color: #FAFBFC !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 !important;
+}
+
+body:after {
+  content: '' !important;
+  flex: 1 1 auto !important;
+}
+
+body .ui.divider {
+  margin: 0;
+}
+
+body .imageLogo{
+  width: 5.5em !important;
+}
+
+.mobileText{
+  text-align: center;
+}
+
+.iconFamily i{
+  font-family: 'Icons' !important;
+  margin: 0 !important;
+}
+
+body .loginButton{
+  padding: 0 15px !important;
+  height: 36px !important;
+  margin: auto 7px !important;
+  background-color: #f5f6f7 !important;
+  color: #4F5FEE !important;
+  width: 134px;
+  display: flex;
+  justify-content: center;
+  margin-right: 14px !important;
+}
+
+body .loginButton:hover {
+  background-color: #E0E3E6 !important;
+}
+
+.ui.huge.menu{
+  font-size: 14px !important;
+}
+
+.navigationBar {
+  height: 50px;
+}
+
+.navItem{
+  margin: auto 7px;
+  height: 36px;
+}
+
+.bigButton{
+  background-color: #2C3FEB !important;
+  color: white !important;
+  padding: 15px 20px !important;
+  font-family: Montserrat, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: normal !important;
+  margin: 8px 0 12px 0 !important;
+}
+
+.headerArea{
+  display: grid;
+}
+
+.headerImage{
+  width: 100% !important;
+  height: auto !important;
+}
+
+.offerItem:hover{
+  background-color: #eceeef !important;
+}
+
+.ui.menu.fixed {
+  position: relative !important;
+  margin-bottom: 40px;
+}
+
+.ui.divided.items > .item:first-child{
+  padding: 1em !important;
+}
+
+.ui.divided.items > .item{
+  padding: 1em !important;
+}
+
+.ui.divided.items > .item:last-child{
+  padding: 1em !important;
+}
+
+
+
+
+/* -------------------- */
+.checkbox-dropdown {
+  width: 200px;
+  border: 1px solid #aaa;
+  padding: 10px;
+  position: relative;
+  z-index: 5 !important;
+
+  user-select: none;
+  background-color: white;
+  margin: 5px 0 12px 0;
+}
+
+/* Display CSS arrow to the right of the dropdown text */
+.checkbox-dropdown:after {
+  content:'';
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 6px solid transparent;
+  border-top-color: #000;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+}
+
+/* Reverse the CSS arrow when the dropdown is active */
+.checkbox-dropdown.is-active:after {
+  border-bottom-color: #000;
+  border-top-color: #fff;
+  margin-top: -9px;
+}
+
+.checkbox-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%; /* align the dropdown right below the dropdown text */
+  border: inherit;
+  left: -1px; /* align the dropdown to the left */
+  right: -1px; /* align the dropdown to the right */
+  opacity: 0; /* hide the dropdown */
+
+  transition: opacity 0.4s ease-in-out;
+  height: 125px;
+  overflow: scroll;
+  overflow-x: hidden;
+  pointer-events: none; /* avoid mouse click events inside the dropdown */
+  background-color: white;
+}
+
+.is-active .checkbox-dropdown-list {
+  opacity: 1; /* display the dropdown */
+  pointer-events: auto; /* make sure that the user still can select checkboxes */
+}
+
+.checkbox-dropdown-list li label {
+  display: block;
+  border-bottom: 1px solid silver;
+  padding: 10px;
+
+  transition: all 0.2s ease-out;
+}
+
+.checkbox-dropdown-list li label:hover {
+  background-color: #555;
+  color: white;
+}
+
+.dropdownCourse{
+  z-index: 6 !important;
+}
+
+.filterContainer{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  gap: 15px;
+}
+
+.middleButton{
+  background-color: #2C3FEB !important;
+  color: white !important;
+  padding: 11px 14px !important;
+  font-family: Montserrat, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  margin: 6px 0 12px 0 !important;
+  border: 1px solid #2C3FEB !important;
+  border-radius: 0.28571429rem !important;
+}
+
+.middleButtonInvisible{
+  background-color: #2C3FEB !important;
+  color: white !important;
+  padding: 11px 14px !important;
+  font-family: Montserrat, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  margin: 18px 0 14px 0 !important;
+  border: 1px solid #2C3FEB !important;
+  border-radius: 0.28571429rem !important;
+  visibility: hidden !important;
+}
+
+.dropFilter{
+  display: inline-block !important;
+  background-color: #2C3FEB !important;
+  padding: 11px 14px !important;
+  color: white !important;
+  border: 1px solid #2C3FEB !important;
+  border-radius: 0.28571429rem !important;
+  font-size: 14px !important;
+  margin: 6px 0 12px 0 !important;
+  height: 38px !important;
+  line-height: 1em !important;
+  float: right !important;
+}
+
+.dropFilter i.icon{
+  margin-right: 8px !important;
+}
+
+footer {
+  display: block !important;
+  height: 35px !important;
+}
+
+.circle{
+  background-color: white;
+  border-radius: 50%;
+  width: 80vh;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px silver;
+}
+
+.circle img{
+  height: 32vh;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+
+.errorMessage{
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.errorButton{
+  padding: 11px 21px;
+  margin-top: 6px !important;
+}
+
+.requestImage{
+  width: 140px !important;
+}
+
+.requestUserImage{
+  object-fit: cover;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.requestBox{
+  box-shadow: 0px 0px 5px silver !important;
+  background-color: white;
+  padding: 12px 20px !important;
+  border-radius: 20px;
+}
+
+.requestUserBox{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.requestContact{
+  margin-top: 2px !important;
+}
+
+
+.requestStatus{
+  text-align: center;
+}
+
+
+.twoColumns{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between;
+}
+
+.leftColumn{
+  width: 60% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px !important;
+}
+
+.rightColumn{
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100% !important;
+  gap: 20px !important;
+}
+
+.requestButtons{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 20px !important;
+}
+
+.myRequests{
+  padding: 14px !important;
+}
+
+.myRequests:hover{
+  background-color: #eceeef !important;
+}
+
+.requestBox{
+  margin-top: 20px;
+}
+
+.requestHeader{
+  margin-bottom: 6px !important;
+}
+
+.buttonBlue{
+  background-color: #2C3FEB !important;
+  color: white !important;
+  font-family: Montserrat, sans-serif !important;
+  border: 1px solid #2C3FEB !important;
+  line-height: 16px !important;
+}
+
+
+.buttonWhite{
+  background-color: white !important;
+  color: #2C3FEB !important;
+  font-family: Montserrat, sans-serif !important;
+  border: 1px solid #2C3FEB !important;
+  line-height: 16px !important;
+}
+
+.lectorButton{
+  margin-top: 40px !important;
+  height: 38px;
+}
+
+.hideDropFilter{
+  display: none !important;
+}
+
+.firstRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.secondRow{
+  display: flex;
+  flex-direction: row;
+}
+
+.offerTitle{
+  margin-bottom: 2px !important;
+}
+
+.lector{
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.offerDescription{
+  width: 75%;
+}
+
+.furtherOfferDescription{
+  margin: 0px;
+}
+
+.offerTeacher{
+  margin-right: 80px;
+}
+
+.offerDetailDescription{
+  margin-top: 16px;
+  padding-right: 80px;
+}
+
+.offerImage{
+  max-width: 25%;
+}
+
+.offerInformation{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  margin-right: 80px;
+  box-shadow: 0px 0px 5px silver !important;
+  background-color: white;
+  padding: 12px 20px !important;
+  border-radius: 20px;
+  margin-bottom: 60px;
+}
+
+.time, .offerInformationDate{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeDataClock, .offerInformationCalendar{
+  width: auto !important;
+  height: auto !important;
+}
+
+.levelImage{
+  width: 60px;
+}
+
+.teacherDetails{
+  display: flex;
+  flex-direction: row;
+}
+
+.newRequestBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 80px;
+  box-shadow: 0px 0px 5px silver !important;
+  background-color: white;
+  padding: 22px 28px !important;
+  border-radius: 20px;
+}
+
+.newRequestBoxTop{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.requestFormHeader{
+  margin: 60px 0 0 0 !important;
+}
+
+.requestDescriptionForm{
+  width: 100% !important;
+}
+
+.teacherDetailsImage{
+  object-fit: cover;
+  width: 92px !important;
+  height: 92px !important;
+}
+
+.teacherDetailText{
+  margin-left: 24px;
+}
+
+.teacherDetailText p {
+  margin: 0 !important;
+}
+
+.teacherDetailText p:first-of-type{
+  font-size: 16px;
+  margin-bottom: 4px !important;
+}
+
+.teacherDetailsDescription{
+  margin-top: 16px;
+}
+
+@media (max-width: 991px){
+  .circle{
+    width: 78vw;
+    height: 78vw;
+  }
+
+  .circle img{
+    height: 27vw;
+    overflow: hidden;
+  }
+
+  .rightColumn{
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .requestStatus{
+    width: auto !important;
+  }
+
+  .requestButtons{
+    flex-direction: row !important;
+    gap: 12px !important;
+  }
+
+  .leftColumn{
+    margin-bottom: 0px !important;
+  }
+
+  .leftColumn{
+    width: 100% !important;
+  }
+
+  .offerInformation{
+    margin: 40px auto 60px auto;
+    flex-direction: column;
+    gap: 28px;
+    width: 50%;
+  }
+  .offerImage img{
+    max-width: 100% !important;
+    width: auto !important;
+    max-height: 250px !important;
+  }
+  .offerImage{
+    max-width: 100% !important;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .requestButtons{
+    flex-direction: row !important;
+    gap: 20px !important;
+  }
+
+  .firstRow{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .offerDescription{
+    width: 100%;
+    order: 2 !important;
+  }
+  .offerImage{
+    order: 1 !important;
+  }
+  .offerTitle{
+    margin-top: 21px !important;
+  }
+  .offerDetailDescription{
+    padding: 0;
+  }
+  .offerTeacher{
+    margin: 0;
+  }
+  .offerRequest{
+    width: 100%;
+  }
+  .newRequestBox{
+    margin: 0;
+  }
+  .newRequestBox{
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+  .offerInformation{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  }
+
+@media (max-width: 650px){
+  .circle{
+    width: 95vw;
+    height: 95vw;
+  }
+  .errorHeading{
+    font-size: 22px;
+  }
+  .errorMessage{
+    font-size: 14px;
+    margin-bottom: 15px !important;
+    width: 70%;
+  }
+  .circle img{
+    height: 23vw;
+    margin-bottom: 15px;
+  }
+  .rightColumn{
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .requestContact{
+    line-height: 18px !important;
+  }
+  .newRequestBoxTop{
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .newRequestBox{
+    gap: 14px;
+  }
+  .offerInformation{
+    flex-direction: column;
+  }
+
+
+}

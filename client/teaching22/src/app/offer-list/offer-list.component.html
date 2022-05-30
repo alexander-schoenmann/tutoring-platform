@@ -1,0 +1,54 @@
+<div class="ui container">
+
+  <h2 *ngIf="authService.isLoggedOut() || authService.getCurrentUserIsStudent() === 1">Overview of available offers</h2>
+  <p *ngIf="authService.isLoggedOut() || authService.getCurrentUserIsStudent() === 1">Here you will find an overview of all available offers.</p>
+
+  <h2 *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() === 0">Overview of your offers</h2>
+  <p *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() === 0">Here you will find an overview of your offers. Use the filters to get more specific results.</p>
+
+  <button *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() === 0" routerLink="/admin"
+          class="ui button middleButton iconFamily"><i class="add icon"></i> Add new offer
+  </button>
+
+  <div class="ui dropdown iconFamily dropFilter">
+    <i class="filter icon"></i>
+    <div class="text">All</div>
+    <div class="menu">
+      <div class="item active selected" data-value="all" (click)="statusFilter('all')">All</div>
+      <div class="item" data-value="available" (click)="statusFilter('available')">Available</div>
+      <div class="item" data-value="booked" (click)="statusFilter('booked')">Booked</div>
+      <div class="item" data-value="closed" (click)="statusFilter('closed')">Closed</div>
+    </div>
+  </div>
+
+  <div class="ui container divided items itemContainer">
+
+    <ng-container *ngFor="let offer of newOffers?.reverse()">
+
+      <!-- not logged in -->
+      <a *ngIf="!authService.isLoggedIn() && offer.status == 'available'" class="item ts-offer-list-item offerItem"
+         [offer]="offer"
+         [routerLink]="offer.id.toString()">
+      </a>
+
+      <!-- logged in as user -->
+      <a *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() === 1 && offer.status == 'available'"
+         class="item ts-offer-list-item offerItem" [offer]="offer" [routerLink]="offer.id.toString()">
+      </a>
+
+      <!-- logged in as lector -->
+      <a
+        *ngIf="authService.isLoggedIn() && authService.getCurrentUserIsStudent() === 0 && offer.user_id == authService.getCurrentUserId()"
+        class="item ts-offer-list-item offerItem" [offer]="offer" [routerLink]="offer.id.toString()">
+      </a>
+
+    </ng-container>
+
+    <div *ngIf="!offers" class="ui active dimmer">
+      <div class="ui large text loader">Loading</div>
+    </div>
+
+    <p *ngIf="offers && !offers.length">No offers available...</p>
+
+  </div>
+</div>

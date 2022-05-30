@@ -1,0 +1,65 @@
+<div class="ui container content">
+
+  <div class="ui items">
+    <div class="item">
+
+      <div class="image requestImage">
+        <img [src]="request?.offer?.image?.url">
+      </div>
+
+      <div class="content twoColumns">
+
+        <div class="leftColumn">
+          <div>
+            <h4 class="header requestHeader">
+              Request from {{request?.user?.firstname}} (<a [routerLink]="['../offers', request?.offer?.id]">{{request?.offer?.title}}</a>)
+            </h4>
+            <div class="meta requestContact">
+          <span>{{datePipe.transform(offer?.date, 'dd.MM.yyyy')}}, {{datePipe.transform(request?.startTime, "hh:mm a")}}
+            - {{datePipe.transform(request?.endTime, "hh:mm a")}}</span>
+            </div>
+          </div>
+          <div class="content requestBox">
+
+            <div class="requestUserBox">
+
+              <img class="requestUserImage" [src]="request?.user?.image?.url">
+
+              <div>
+                <div class="description"><b>{{request?.user?.firstname}} {{request?.user?.lastname}}</b></div>
+                <div class="meta requestContact">{{request?.user?.email}}, {{request?.user?.phone}}</div>
+                <div class="description"></div>
+                <div class="metadata" *ngIf="request?.description">
+                  <p>"{{request?.description}}"</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="rightColumn">
+          <div class="extra requestStatus">Current status: {{request?.status}}</div>
+          <div class="requestButtons iconFamily">
+            <button *ngIf="!authService.getCurrentUserIsStudent() && request?.status === 'waiting'"
+                    class="ui tiny button buttonBlue" (click)="changeStatus('accepted')"><i class="check icon"></i> Accept
+            </button>
+            <button *ngIf="!authService.getCurrentUserIsStudent() && request?.status === 'waiting'"
+                    class="ui tiny button buttonWhite" (click)="changeStatus('rejected')"><i class="x icon icon"></i> Reject
+            </button>
+
+            <button *ngIf="!authService.getCurrentUserIsStudent() && request?.status === 'accepted'"
+                    class="ui tiny button buttonBlue" (click)="changeStatus('successfull')"><i class="thumbs up icon"></i> Successfull
+            </button>
+            <button *ngIf="!authService.getCurrentUserIsStudent() && request?.status === 'accepted'"
+                    class="ui tiny button buttonWhite" (click)="changeStatus('not successfull')"><i class="thumbs down icon"></i> Not Successfull
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

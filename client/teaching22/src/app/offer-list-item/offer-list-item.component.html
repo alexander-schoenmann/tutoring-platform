@@ -1,0 +1,18 @@
+<div class="image">
+  <img *ngIf="offer && offer.image" [src]="offer.image.url">
+</div>
+
+<div class="content">
+  <a class="header">{{offer?.title}}</a>
+  <div class="meta">
+    <span class="">{{datePipe.transform(offer?.date,'dd.MM.yyyy')}}, {{datePipe.transform(offer?.startTime, "hh:mm a")}} - {{datePipe.transform(offer?.endTime, "hh:mm a")}}</span>
+  </div>
+  <div class="description">
+    <p>{{offer?.description}}</p>
+  </div>
+  <div class="extra iconFamily">
+    <div class="ui label"><i class="book icon"></i> {{offer?.course?.title}}</div>
+    <div class="ui label"><i class="clock icon"></i> {{transformLetter(offer?.status)}}</div>
+    <div class="ui label"><i class="chart line icon"></i> {{offer?.level?.title}}</div>
+  </div>
+</div>

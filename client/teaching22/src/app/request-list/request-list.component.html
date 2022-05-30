@@ -1,0 +1,44 @@
+<div class="ui container">
+
+  <h2 *ngIf="authService.getCurrentUserIsStudent() === 1">Overview of your sent requests</h2>
+  <p *ngIf="authService.getCurrentUserIsStudent() === 1">Here you will find an overview of your sent requests. Use the filters to get more specific results.</p>
+
+  <h2 *ngIf="authService.getCurrentUserIsStudent() === 0">Overview of your received requests</h2>
+  <p *ngIf="authService.getCurrentUserIsStudent() === 0">Here you will find an overview of your received requests. Use the filters to get more specific results.</p>
+
+  <button *ngIf="authService.isLoggedIn()" class="ui button middleButtonInvisible iconFamily"></button>
+
+  <div class="ui dropdown iconFamily dropFilter">
+    <i class="filter icon"></i>
+    <div class="text">All</div>
+    <div class="menu">
+      <div class="item active selected" data-value="all" (click)="statusFilter('all')">All</div>
+      <div class="item" data-value="accepted" (click)="statusFilter('accepted')">Accepted</div>
+      <div class="item" data-value="waiting" (click)="statusFilter('waiting')">Waiting</div>
+      <div class="item" data-value="rejected" (click)="statusFilter('rejected')">Rejected</div>
+      <div class="item" data-value="closed" (click)="statusFilter('closed')">Closed</div>
+    </div>
+  </div>
+
+  <div class="ui divided items itemContainer">
+
+  <ng-container *ngFor="let request of newRequests?.reverse()">
+
+    <!-- logged in as user -->
+    <div *ngIf="authService.getCurrentUserIsStudent() === 1 && request?.user_id == authService.getCurrentUserId()"
+         class="item ts-request-list-item myRequests" [request]="request"></div>
+
+    <!-- logged in as lector -->
+    <div *ngIf="authService.getCurrentUserIsStudent() === 0 && request?.offer?.user_id == authService.getCurrentUserId()"
+         class="item ts-request-list-item myRequests" [request]="request" (rejectReq)="getRequests()"></div>
+
+  </ng-container>
+</div>
+
+  <div *ngIf="!requests" class="ui active dimmer">
+    <div class="ui large text loader">Loading</div>
+  </div>
+
+  <p *ngIf="requests && !requests.length">No requests available...</p>
+
+</div>

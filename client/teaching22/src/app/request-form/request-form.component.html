@@ -1,0 +1,36 @@
+<h3 class="requestFormHeader">New request</h3>
+<p class="lector">Fields marked with * are required!</p>
+
+  <form class="ui large form newRequestBox" [formGroup]="requestForm" (ngSubmit)="submitForm()">
+
+    <div class="newRequestBoxTop">
+
+    <input type="hidden" formControlName="id">
+    <div class="field">
+      <label>Date *</label>
+      <input type="date" formControlName="date">
+      <div *ngIf="errors['date']" class="ui negative message"> {{ errors['date'] }} </div>
+    </div>
+
+    <div class="field">
+      <label>Starttime *</label>
+      <input type="time" formControlName="startTime">
+      <div *ngIf="errors['startTime']" class="ui negative message"> {{ errors['startTime'] }} </div>
+    </div>
+
+    <div class="field">
+      <label>Endtime *</label>
+      <input type="time" formControlName="endTime">
+      <div *ngIf="errors['endTime']" class="ui negative message"> {{ errors['endTime'] }} </div>
+    </div>
+
+    </div>
+
+    <div class="field requestDescriptionForm">
+      <label>Description</label>
+      <textarea formControlName="description" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="ui button requestFormButton middleButton" [disabled]="requestForm.invalid">Send</button>
+
+  </form>
