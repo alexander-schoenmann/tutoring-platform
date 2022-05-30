@@ -1,2 +1,2 @@
-# tutoring-platform
+# Tutoring Platform
 A tutoring platform that allows students and teachers to coordinate appointments for individual offers.
